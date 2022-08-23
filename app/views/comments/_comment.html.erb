@@ -9,12 +9,14 @@
       <% end %>
     </span>
     <em><%= l comment.created_at, format: :short %></em>
+    <em>
     <% if current_user_can_edit?(comment) %>
-        <%= link_to(
-                'удалить', event_comment_path(comment.event, comment),
-                method: :delete, data: {confirm: t('.destroy_confirm')}
-            ) %>
+        <%= button_to 'Удалить', event_comment_path(comment.event, comment),
+            method: :delete,
+            data: {confirm: t('.destroy_confirm')},
+            class: "bg-transparent no-border my-bt" %>
     <% end %>
+    </em>
   </p>
 </div>
 

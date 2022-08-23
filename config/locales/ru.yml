@@ -66,6 +66,8 @@ ru:
         few: "%{count} ошибки:"
         many: "%{count} ошибок:"
         other: "%{count} ошибок:"
+    subscription:
+      alien_email: 'Email уже зарегистрирован'
 
 
   # Сообщение при удалении события или пользователя

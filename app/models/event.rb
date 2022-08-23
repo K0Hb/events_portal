@@ -1,6 +1,7 @@
 class Event < ApplicationRecord
   # Событие принадлежит юзеру
   belongs_to :user
+  has_many :comments
 
   # Юзера не может не быть. Обратите внимание, что в rails 5 связи валидируются
   # по умолчанию

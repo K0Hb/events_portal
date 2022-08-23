@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <title>Myapp</title>
+      <title> <%= t('app.name') %> </title>
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <%= csrf_meta_tags %>
       <%= csp_meta_tag %>
@@ -14,7 +14,7 @@
 
     <div class="navbar navbar-expand navbar-default navbar-static-top border-bottom">
       <div class="container">
-        <%= link_to "event manager", root_path, class: 'navbar-brand text-secondary' %>
+        <%= link_to t('app.name'), root_path, class: 'navbar-brand text-secondary' %>
 
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
@@ -41,7 +41,7 @@
       </div><!--/row-->
 
       <footer>
-        <p>&copy; Company 2022</p>
+        <p>&copy; <%= t 'app.company' %> 2022</p>
       </footer>
 
     </div> <!-- /container -->

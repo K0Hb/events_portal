@@ -13,6 +13,10 @@ module ApplicationHelper
     nil
   end
 
+  def fa_icon(icon_class)
+    content_tag 'span', '', class: "fa fa-#{icon_class}"
+  end
+
   private
 
   def bootstrap_class_for(flash_type)

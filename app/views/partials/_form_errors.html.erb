@@ -7,8 +7,8 @@
     </div>
 
     <ul class="alert alert-danger">
-      <% errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <% errors.each do |error| %>
+        <li><%= error.full_message %></li>
       <% end %>
     </ul>
   </div>

@@ -66,8 +66,14 @@ ru:
         few: "%{count} ошибки:"
         many: "%{count} ошибок:"
         other: "%{count} ошибок:"
-        alien_email: 'Email уже зарегистрирован'
 
+  activerecord:
+    errors:
+      models:
+        subscription:
+          attributes:
+            user_email:
+              alien_email: 'Email уже зарегистрирован'
 
   # Сообщение при удалении события или пользователя
   are_you_sure: 'Вы уверены?'
@@ -124,3 +130,8 @@ ru:
 
   pundit:
     not_authorized: 'Доступ запрещен!'
+
+  resource:
+    errors:
+      messages:
+        not_saved:

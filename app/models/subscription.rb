@@ -39,7 +39,7 @@ class Subscription < ApplicationRecord
   end
 
   def email_check_in_users
-    errors.add(:not_saved, :alien_email) if User.find_by(email: user_email)
+    errors.add(:user_email, :alien_email) if User.find_by(email: user_email)
   end
 
   def email_downcase

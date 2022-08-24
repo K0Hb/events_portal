@@ -9,12 +9,18 @@ class ApplicationController < ActionController::Base
   # Хелпер метод, доступный во вьюхах
   helper_method :current_user_can_edit?
 
+  private
+
   # Настройка для девайза — разрешаем обновлять профиль, но обрезаем
   # параметры, связанные со сменой пароля.
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(
       :account_update,
-      keys: [:password, :password_confirmation, :current_password]
+      keys: [:name, :password, :password_confirmation, :current_password]
+    )
+    devise_parameter_sanitizer.permit(
+      :sign_up,
+      keys: [:name, :password, :password_confirmation, :current_password]
     )
   end
 

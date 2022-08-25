@@ -73,7 +73,7 @@ ru:
         subscription:
           attributes:
             user_email:
-              alien_email: 'Email уже зарегистрирован'
+              taken: 'Email уже зарегистрирован'
 
   # Сообщение при удалении события или пользователя
   are_you_sure: 'Вы уверены?'

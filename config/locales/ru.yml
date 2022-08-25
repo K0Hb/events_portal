@@ -139,7 +139,6 @@ ru:
   pundit:
     not_authorized: 'Доступ запрещен!'
 
-  resource:
-    errors:
-      messages:
-        not_saved:
+  view:
+    comment: 'Коментарий'
+    photo: 'Фотография'

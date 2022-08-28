@@ -6,17 +6,16 @@ class Subscription < ApplicationRecord
 
   before_validation :email_downcase
 
-  with_options unless: -> { user.present? } do |user|
-    user.validates :user_name, presence: true
-    user.validates :user_email, presence: true, format: REGEX_EMAIL, uniqueness: { scope: :event_id }
-    user.validate :email_presence
+  with_options unless: -> { user.present? } do
+    validates :user_name, presence: true
+    validates :user_email, presence: true, format: REGEX_EMAIL, uniqueness: { scope: :event_id }
+    validate :email_suitability
   end
 
-  with_options if: -> { user.present? } do |user|
-    user.validates :user, uniqueness: { scope: :event_id }
+  with_options if: -> { user.present? } do
+    validates :user, uniqueness: { scope: :event_id }
+    validate :yourself_subscribe
   end
-
-  validate :yourself_subscribe
 
   def user_name
     user&.name || super
@@ -28,12 +27,12 @@ class Subscription < ApplicationRecord
 
   private
 
-  def email_presence
+  def email_suitability
     errors.add(:user_email, :taken) if User.find_by(email: user_email)
   end
 
   def email_downcase
-    user_email.downcase! if user_email.present?
+    user_email&.downcase!
   end
 
   def yourself_subscribe

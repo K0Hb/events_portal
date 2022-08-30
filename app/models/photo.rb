@@ -5,7 +5,7 @@ class Photo < ApplicationRecord
   validates :event, presence: true
   validates :user, presence: true
 
-  mount_uploader :photo, PhotoUploader
+  has_many_attached :images
 
-  scope :persisted, -> { where "id IS NOT NULL" }
+  # scope :persisted, -> { where "id IS NOT NULL" }
 end

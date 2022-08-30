@@ -26,6 +26,7 @@ gem 'russian'
 gem 'carrierwave'
 gem 'mailjet'
 gem 'image_processing'
+gem 'rmagick'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

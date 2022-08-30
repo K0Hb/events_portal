@@ -27,7 +27,7 @@ gem 'carrierwave'
 gem 'mailjet'
 gem 'image_processing'
 gem 'rmagick'
-gem 'ruby-vips'
+gem 'vips'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

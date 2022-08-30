@@ -7,16 +7,13 @@ class SubscriptionsController < ApplicationController
 
 
   def create
-    # Болванка для новой подписки
     @new_subscription = @event.subscriptions.build(subscription_params)
     @new_subscription.user = current_user
 
     if @new_subscription.save
-      EventMailer.subscription(@event, @new_subscription).deliver_now
-      # Если сохранилась успешно, редирект на страницу самого события
+      # EventMailer.subscription(@event, @new_subscription).deliver_now
       redirect_to @event, notice: I18n.t('controllers.subscriptions.created')
     else
-      # если ошибки — рендерим здесь же шаблон события
       render 'events/show', alert: I18n.t('controllers.subscriptions.error')
     end
   end
@@ -43,7 +40,6 @@ class SubscriptionsController < ApplicationController
   end
 
   def subscription_params
-    # .fetch разрешает в params отсутствие ключа :subscription
     params.fetch(:subscription, {}).permit(:user_email, :user_name)
   end
 end

@@ -1,6 +1,6 @@
 <div class="col-sm-6 col-md-4">
-  <div class="thumbnail">
-    <div class="event-backgroung" style="background-image: url(<%= "#{asset_path('event_thumb.jpg')})" %>">
+  <div class="thumbnail mt-2 mb-2">
+    <div class="event-background" style="background-image: url(<%= event_photo(event) %>">
       <div class="thumbnail-inner event-info-inner">
         <div class="caption">
           <div class="event-description">
@@ -12,7 +12,9 @@
           </div>
           <div>
             <% event.visitors.each do |user| %>
-              <%= image_tag user_avatar_thumb(user), title: user.name %>
+              <span class="user-avatar">
+                <%= image_tag user_avatar_thumb(user), class: 'img-i m-1 rounded-circle', title: user.name %>
+              </span>
             <% end %>
           </div>
         </div>

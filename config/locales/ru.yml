@@ -87,20 +87,6 @@ ru:
   # Сообщение при удалении события или пользователя
   are_you_sure: 'Вы уверены?'
 
-  event_mailer:
-    comment:
-      title: 'Новый комментарий'
-      author: 'Автор'
-      event: 'Событие'
-      owner: 'Организатор'
-    subscription:
-      title: 'Новая подписка'
-      name: 'Имя'
-      email: 'Email'
-      author: 'Автор'
-      event: 'Событие'
-      owner: 'Организатор'
-
   devise:
     passwords:
       edit:
@@ -136,7 +122,7 @@ ru:
         forgot_your_password: 'Забыли Ваш пароль?'
         confirmation_instructions: 'Не получили инструкции по подтверждению?'
         unlock_instructions: 'Не получили инструкции по разблокировке?'
-        sign_in_with: 'Войти в систему с'
+        sign_in_with: 'Войти в систему'
 
   pundit:
     not_authorized: 'Доступ запрещен!'
@@ -144,6 +130,18 @@ ru:
   view:
     comment: 'Коментарий'
     photo: 'Фотография'
+    none_event: 'Пользователь пока не организовал ни одного события'
+    none_subscriptions: 'Пока никто не подписался'
+    organized: 'Организовал'
+    add: 'Добавил'
+    in_you_form: 'В вашей форме'
+    edit_event: 'Редактирование события'
+    events: 'События'
+    new_event: 'Новое событие'
+    pincod_guard: 'Доступ только по пин-коду'
+    calling: 'Зовет'
+    they_will_go: 'Пойдут'
+    i_go: 'Я пойду'
 
   event_mailer:
     comment:

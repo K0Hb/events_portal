@@ -1,5 +1,5 @@
 <div class="event-photo buffer-both">
   <a href=<%= url_for(photo.photo) %> ><img src=<%= photo_thumb(photo) %> alt='photo' ></a>
 
-  Добавил <%= render partial: 'users/user', object: photo.user %>
+  <%= t('view.add') %> <%= render partial: 'users/user', object: photo.user %>
 </div>

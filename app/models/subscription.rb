@@ -36,6 +36,6 @@ class Subscription < ApplicationRecord
   end
 
   def yourself_subscribe
-    errors.add(:user, I18n.t('subscriptions.subscription.yourself_subscription')) if event.user == user
+    errors.add(:user, :taken) if event.user == user
   end
 end

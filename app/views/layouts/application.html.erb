@@ -7,8 +7,9 @@
       <%= csp_meta_tag %>
 
     <%= turbo_include_tags %>
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>  <%# this loads Sprockets/Rails asset pipeline %>
-    <%= javascript_importmap_tags %> <%#  this loads JS from importmaps %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "https://api-maps.yandex.ru/2.1/?lang=ru_RU" %>
+    <%= javascript_importmap_tags %>
   </head>
 
   <body>

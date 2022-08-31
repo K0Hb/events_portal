@@ -1,7 +1,5 @@
-
-  console.log('dont work(');
-  ymaps.ready(init);
-  var myMap;
+ymaps.ready(init);
+var myMap;
 
 function init(){
   mapElement = document.getElementById('map');
@@ -38,4 +36,3 @@ function init(){
     }
   );
 }
-// document.addEventListener('turbo:load', map)

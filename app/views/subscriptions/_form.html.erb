@@ -13,9 +13,7 @@
         </div>
     <% end %>
 
-    <% unless @event.user_id == current_user&.id %>
-      <div class="actions">
-        <%= f.submit 'Подписаться', class: 'btn btn-primary' %>
-      </div>
-    <% end %>
+    <div class="actions">
+      <%= f.submit 'Подписаться', class: 'btn btn-primary' %>
+    </div>
 <% end %>

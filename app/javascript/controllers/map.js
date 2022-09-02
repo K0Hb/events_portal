@@ -2,16 +2,10 @@ ymaps.ready(init);
 let myMap;
 
 function init(){
-  let mapElement = document.getElementById('map');
-
-  if (!mapElement) {
-      return;
-  }
-
   let address = document.getElementById('map').getAttribute('data-address');
 
   let myMap = new ymaps.Map("map", {
-    center: [56.870630, 60.437392],
+    center: [59.94, 30.31],
     zoom: 10
   });
 

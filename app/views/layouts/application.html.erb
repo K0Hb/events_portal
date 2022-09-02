@@ -9,8 +9,7 @@
     <%= turbo_include_tags %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-
-    <script src="https://api-maps.yandex.ru/2.1/?apikey=44bf0856-1b21-4451-8a8b-65551dae152e&lang=ru_RU" type="text/javascript"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=<%= Rails.application.credentials.dig(:yandex, :apikey) %>" type="text/javascript"></script>
 
   </head>
 
@@ -40,12 +39,12 @@
           <%= bootstrap_flash %>
           <%= yield %>
         </div>
-      </div><!--/row-->
+      </div>
 
       <footer>
         <p>&copy; <%= t 'app.company' %> 2022</p>
       </footer>
 
-    </div> <!-- /container -->
+    </div>
   </body>
 </html>

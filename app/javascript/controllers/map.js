@@ -1,25 +1,25 @@
 ymaps.ready(init);
-var myMap;
+let myMap;
 
 function init(){
-  mapElement = document.getElementById('map');
+  let mapElement = document.getElementById('map');
 
   if (!mapElement) {
       return;
   }
 
-  address = document.getElementById('map').getAttribute('data-address');
+  let address = document.getElementById('map').getAttribute('data-address');
 
-  myMap = new ymaps.Map("map", {
+  let myMap = new ymaps.Map("map", {
     center: [56.870630, 60.437392],
     zoom: 10
   });
 
-  myGeocoder = ymaps.geocode(address);
+  let myGeocoder = ymaps.geocode(address);
 
   myGeocoder.then(
     function (res) {
-      coordinates = res.geoObjects.get(0).geometry.getCoordinates();
+      let coordinates = res.geoObjects.get(0).geometry.getCoordinates();
 
       myMap.geoObjects.add(
         new ymaps.Placemark(

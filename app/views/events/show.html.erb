@@ -54,6 +54,7 @@
     </div>
 
     <div class="col-md-4">
+      <div id="map" data-address="<%= @event.address %>" class="event-map mt-2 mb-2", style="width: auto; height: 350px"></div>
       <div class="event-owner">
         <h4><%= t('view.calling') %></h4>
         <p><%= render partial: 'users/user', object: @event.user %></p>
@@ -82,47 +83,3 @@
     </div>
   </div>
 </div>
-
-<div id="map" data-address="<%= @event.address %>" class="event-map", style="width: 350px; height: 350px"></div>
-
-<script>
-  ymaps.ready(init);
-  var myMap;
-
-  function init(){
-    mapElement = document.getElementById('map');
-
-    if (!mapElement) {
-        return;
-    }
-
-    address = document.getElementById('map').getAttribute('data-address');
-    console.log(address)
-
-    myMap = new ymaps.Map("map", {
-      center: [56.870630, 60.437392],
-      zoom: 10
-    });
-
-    myGeocoder = ymaps.geocode(address);
-
-    myGeocoder.then(
-      function (res) {
-        coordinates = res.geoObjects.get(0).geometry.getCoordinates();
-
-        myMap.geoObjects.add(
-          new ymaps.Placemark(
-            coordinates,
-            {iconContent: address},
-            {preset: 'islands#blueStretchyIcon'}
-          )
-        );
-
-        myMap.setCenter(coordinates);
-        myMap.setZoom(15);
-      }, function (err) {
-        alert('Ошибка при определении местоположения');
-      }
-    );
-  }
-</script>

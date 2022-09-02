@@ -6,4 +6,3 @@ pin "@popperjs/core", to: "https://unpkg.com/@popperjs/core@2.11.2/dist/esm/inde
 pin "scripts/maps";
 
 pin_all_from "app/javascript/controllers", under: "controllers"
-pin_all_from 'api-maps', to: "https://api-maps.yandex.ru/2.1/?lang=ru_RU"

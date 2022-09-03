@@ -22,11 +22,11 @@
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
             <% if user_signed_in? %>
-              <li><%= link_to "Профиль #{current_user.name}", current_user, class: "nav-link link-secondary ms-3" %></li>
-              <li><%= button_to 'Выйти', destroy_user_session_path, :method => :delete, class: "nav-link link-secondary ms-3 bg-transparent no-border my-bt" %></li>
+              <li><%= link_to "#{t('layouts.profile')} #{current_user.name}", current_user, class: "nav-link link-secondary ms-3" %></li>
+              <li><%= button_to t('layouts.exit'), destroy_user_session_path, :method => :delete, class: "nav-link link-secondary ms-3 bg-transparent no-border my-bt" %></li>
             <% else %>
-              <li><%= link_to 'Войти', new_user_session_path, class: "nav-link link-secondary ms-3" %></li>
-              <li><%= link_to 'Зарегистрироватьcя', new_user_registration_path, class: "nav-link link-secondary ms-3" %></li>
+              <li><%= link_to t('layouts.enter'), new_user_session_path, class: "nav-link link-secondary ms-3" %></li>
+              <li><%= link_to t('layouts.sigh_in'), new_user_registration_path, class: "nav-link link-secondary ms-3" %></li>
             <% end %>
           </ul>
         </div>

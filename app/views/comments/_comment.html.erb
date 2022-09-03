@@ -11,7 +11,7 @@
     <em><%= l comment.created_at, format: :short %></em>
     <em>
     <% if current_user_can_edit?(comment) %>
-        <%= button_to 'Удалить', event_comment_path(comment.event, comment),
+        <%= button_to t('view.delete'), event_comment_path(comment.event, comment),
             method: :delete,
             data: {confirm: t('.destroy_confirm')},
             class: "bg-transparent no-border my-bt" %>

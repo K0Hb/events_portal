@@ -99,6 +99,13 @@ ru:
       new:
         forgot_your_password: 'Забыли Ваш пароль?'
         password_instructions: 'Отправить мне инструкции по сбросу пароля'
+      reset:
+        link_to_change: 'Кто-то запросил ссылку для изменения вашего пароля, и вы можете сделать это по ссылке ниже'
+        hi: 'Привет'
+        change_my_password: 'Сменить мой пароль'
+        plz_ignor_mail: 'Если вы не запрашивали это, пожалуйста, проигнорируйте это письмо.'
+        password_dont_change_until_link: 'Ваш пароль не изменится до тех пор, пока вы не перейдете по ссылке выше и не создадите новый.'
+
     registrations:
       edit:
         edit: 'Редактировать'
@@ -142,6 +149,20 @@ ru:
     calling: 'Зовет'
     they_will_go: 'Пойдут'
     i_go: 'Я пойду'
+    push: 'Отправить'
+    delete: 'Удалить'
+    waiting_confirmation: 'В настоящее время ожидает подтверждения для:'
+    subscribe: 'Подписаться'
+    unsubscribe: 'Отписаться'
+    save: 'Сохранить'
+    back: 'Вернуться'
+    edit_profile: 'Редактировать профиль'
+
+  layouts:
+    profile: 'Профиль'
+    exit: 'Выйти'
+    enter: 'Войти'
+    sigh_in: 'Зарегистрироватьcя'
 
   event_mailer:
     comment:

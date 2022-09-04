@@ -1,5 +1,5 @@
 <%# Unfortunately, it doesn't work differently in deploy mode %>
-<script>
+<%# <script>
   ymaps.ready(init);
   let myMap;
 
@@ -32,8 +32,8 @@
       }
     );
   }
-</script>
-<div class="event">
+</script> %>
+<div class="event", data-controller="map">
   <div class="event-info row">
     <div class="col-md-12">
       <div class="event-background" style="background-image: url(<%= "#{asset_path('event.jpg')})" %>">
@@ -89,7 +89,7 @@
     </div>
 
     <div class="col-md-4">
-      <div id="map" data-address="<%= @event.address %>" class="event-map mt-2 mb-2", style="width: auto; height: 350px"></div>
+      <div id="map" data-address="<%= @event.address %>" class="event-map mt-2 mb-2", style="width: auto; height: 350px", data-controller="map"></div>
       <div class="event-owner">
         <h4><%= t('view.calling') %></h4>
         <p><%= render partial: 'users/user', object: @event.user %></p>

@@ -6,7 +6,6 @@
       <%= csrf_meta_tags %>
       <%= csp_meta_tag %>
 
-    <%= turbo_include_tags %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=<%= Rails.application.credentials.dig(:yandex, :apikey) %>" type="text/javascript"></script>

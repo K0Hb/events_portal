@@ -1,38 +1,3 @@
-<%# Unfortunately, it doesn't work differently in deploy mode %>
-<%# <script>
-  ymaps.ready(init);
-  let myMap;
-
-  function init(){
-    let address = document.getElementById('map').getAttribute('data-address');
-
-    let myMap = new ymaps.Map("map", {
-      center: [59.94, 30.31],
-      zoom: 10
-    });
-
-    let myGeocoder = ymaps.geocode(address);
-
-    myGeocoder.then(
-      function (res) {
-        let coordinates = res.geoObjects.get(0).geometry.getCoordinates();
-
-        myMap.geoObjects.add(
-          new ymaps.Placemark(
-            coordinates,
-            {iconContent: address},
-            {preset: 'islands#blueStretchyIcon'}
-          )
-        );
-
-        myMap.setCenter(coordinates);
-        myMap.setZoom(15);
-      }, function (err) {
-        alert('Ошибка при определении местоположения');
-      }
-    );
-  }
-</script> %>
 <div class="event", data-controller="map">
   <div class="event-info row">
     <div class="col-md-12">
@@ -89,7 +54,7 @@
     </div>
 
     <div class="col-md-4">
-      <div id="map" data-address="<%= @event.address %>" class="event-map mt-2 mb-2", style="width: auto; height: 350px", data-controller="map"></div>
+      <div id="map" data-address="<%= @event.address %>" class="event-map mt-2 mb-2", style="width: 350px; height: auto", data-controller="map"></div>
       <div class="event-owner">
         <h4><%= t('view.calling') %></h4>
         <p><%= render partial: 'users/user', object: @event.user %></p>

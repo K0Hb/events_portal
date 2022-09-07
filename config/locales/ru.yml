@@ -85,13 +85,13 @@ ru:
   devise:
     passwords:
       edit:
-        avatar: 'Аватарка'
         change_your_password: 'Измените свой пароль'
         new_password: 'Новый пароль'
         characters_minimum: 'символов минимум'
         confirm_new_password: 'Подтвердите новый пароль'
         change_my_password: 'Изменить свой пароль'
       new:
+        email: 'адресс почты'
         forgot_your_password: 'Забыли Ваш пароль?'
         password_instructions: 'Отправить мне инструкции по сбросу пароля'
       reset:
@@ -103,6 +103,8 @@ ru:
 
     registrations:
       edit:
+        email: 'Почта'
+        avatar: 'Аватарка'
         edit: 'Редактировать'
         leave_blank: 'оставьте поле пустым, если не хотите его менять'
         characters_minimum: 'символов минимум'
@@ -111,12 +113,20 @@ ru:
         cancel_account: 'Удалить мой аккаунт'
         unhappy: 'Недовольны?'
         back: 'Назад'
+        new_password: 'Новый пароль'
+        are_you_sure: 'Вы уврерны?'
       new:
         sign_up: 'Зарегистрироваться'
         characters_minimum: 'символов минимум'
+        new_password: 'Новый пароль'
+        email: 'Почта'
+        name: 'Имя'
     sessions:
       new:
         log_in: 'Войти'
+        email: 'Почта'
+        password: 'Пароль'
+
     shared:
       links:
         log_in: 'Войти'
@@ -139,8 +149,8 @@ ru:
     in_you_form: 'В вашей форме'
     edit_event: 'Редактирование события'
     events: 'События'
+    create_event: 'Создать событие'
     new_event: 'Новое событие'
-    pincod_guard: 'Доступ только по пин-коду'
     calling: 'Зовет'
     they_will_go: 'Пойдут'
     i_go: 'Я пойду'
@@ -151,7 +161,17 @@ ru:
     unsubscribe: 'Отписаться'
     save: 'Сохранить'
     back: 'Вернуться'
+    edit: 'Изменить'
     edit_profile: 'Редактировать профиль'
+    pincode: 'Пин-код'
+    pincod_guard: 'Доступ только по пин-коду'
+    back_major: 'На главную'
+    download: 'Загрузить'
+    title: 'Название'
+    address: 'Адрес'
+    datetime: 'Время проведения'
+    description: 'Описание'
+
 
   layouts:
     profile: 'Профиль'

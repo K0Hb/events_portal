@@ -2,27 +2,27 @@
   <%= render partial: 'partials/form_errors', locals: {model: @event} %>
 
   <div class="form-group">
-    <%= f.label :title %>
+    <%= f.label t('view.title') %>
     <%= f.text_field :title, class: 'form-control' %>
   </div>
 
   <div class="form-group">
-    <%= f.label :address %>
+    <%= f.label t('view.address') %>
     <%= f.text_field :address, class: 'form-control' %>
   </div>
 
   <div class="form-group">
-    <%= f.label :datetime %>
+    <%= f.label t('view.datetime') %>
     <p><%= f.datetime_select :datetime, class: 'form-control' %></p>
   </div>
 
   <div class="form-group">
-    <%= f.label :description %>
+    <%= f.label t('view.description') %>
     <%= f.text_area :description, class: 'form-control' %>
   </div>
 
   <div class="form-group">
-    <%= f.label :pincode %>
+    <%= f.label t('view.pincode') %>
     <%= f.text_field :pincode, class: 'form-control' %>
   </div>
 

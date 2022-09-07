@@ -6,12 +6,12 @@
 
     <div class="mb-3">
       <%= f.label :name, class: 'form-label' %><br />
-      <%= f.text_field :name, autofocus: true, autocomplete: "name", class: 'form-control form-control-sm' %>
+      <%= f.text_field :name, autofocus: true, autocomplete: t('.name'), class: 'form-control form-control-sm' %>
     </div>
 
     <div class="mb-3">
       <%= f.label :email, class: 'form-label' %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control form-control-sm' %>
+      <%= f.email_field :email, autofocus: true, autocomplete: t('.email'), class: 'form-control form-control-sm' %>
     </div>
 
     <div class="mb-3">
@@ -19,12 +19,12 @@
       <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> <%= t('.characters_minimum') %>)</em>
       <% end %><br />
-      <%= f.password_field :password, autocomplete: "new-password", class: 'form-control form-control-sm' %>
+      <%= f.password_field :password, autocomplete: t('.new_password'), class: 'form-control form-control-sm' %>
     </div>
 
     <div class="mb-3">
       <%= f.label :password_confirmation, class: 'form-label' %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control form-control-sm' %>
+      <%= f.password_field :password_confirmation, autocomplete: t('.new_password'), class: 'form-control form-control-sm' %>
     </div>
 
     <div class="actions">

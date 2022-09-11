@@ -171,6 +171,7 @@ ru:
     address: 'Адрес'
     datetime: 'Время проведения'
     description: 'Описание'
+    or: 'или'
 
 
   layouts:

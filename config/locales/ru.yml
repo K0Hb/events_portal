@@ -195,3 +195,11 @@ ru:
       event: 'Событие'
       datetime: 'Состоится'
       owner: 'Организатор'
+
+  mailer:
+    new_subscription: 'Новая подписка'
+    name: 'Имя'
+    email: 'Email'
+    event: 'Событие'
+    date_event: 'Состоится'
+    organizer: 'Организатор'

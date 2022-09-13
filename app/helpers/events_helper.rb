@@ -1,8 +1,15 @@
 module EventsHelper
-
   def event_photo(event)
     if event.photos.first
       event.photos.first.photo.url
+    else
+      asset_url('event_thumb.jpg')
+    end
+  end
+
+  def event_background_img_url(event, new_photo)
+    if event.photos.except(new_photo).first
+      event.photos.except(new_photo).first.photo.url
     else
       asset_url('event_thumb.jpg')
     end

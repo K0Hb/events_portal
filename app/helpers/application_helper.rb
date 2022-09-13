@@ -13,7 +13,7 @@ module ApplicationHelper
 
   def user_avatar_thumb(user)
     if user.avatar.attached?
-      user.avatar.variant(resize_to_fit: [50, 50])
+      user.avatar.variant(resize_to_fit: [400, 400])
     else
       asset_path('avatar.png')
     end
@@ -23,7 +23,7 @@ module ApplicationHelper
     if object.photo.attached?
       object.photo.variant(resize_to_fit: [50, 50])
     else
-      asset_path('event_thubm.jpg')
+      asset_path('event_thumb.jpg')
     end
   end
 

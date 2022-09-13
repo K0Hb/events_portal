@@ -5,7 +5,7 @@
       <%= t('view.add') %> <%= render partial: 'users/user', object: photo.user %>
     </span>
     <span>
-      <%if current_user.id == photo.photo.record.user_id  %>
+      <% if current_user&.id == photo.photo.record.user_id  %>
         <%= button_to 'delete', event_photo_path(photo.event, photo),
             class: "icon-cog mt-2", method: :delete,
             form: { data: {turbo_confirm: t('are_you_sure')} } %>

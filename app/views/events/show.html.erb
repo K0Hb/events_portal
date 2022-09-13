@@ -43,8 +43,10 @@
       </div>
 
       <div class="event-comments buffer-top mt-2">
-        <%= render partial: 'comments/form',
-          locals: {comment: @new_comment || @event.comments.build} %>
+        <% if current_user %>
+          <%= render partial: 'comments/form',
+            locals: {comment: @new_comment || @event.comments.build} %>
+        <% end %>
 
         <div class="buffer-both">
           <%= render partial: 'comments/comment',

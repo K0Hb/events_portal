@@ -186,7 +186,7 @@ ru:
       author: 'Автор'
       event: 'Событие'
       owner: 'Организатор'
-      subject: 'Новый комментарий @ %{event}'
+      subject: 'Новый комментарий '
 
     subscription:
       title: 'Новая подписка'
@@ -195,11 +195,11 @@ ru:
       author: 'Автор'
       event: 'Событие'
       owner: 'Организатор'
-      subject: 'Новая подписка на %{event}'
+      subject: 'Новая подписка на '
 
     photo:
       title: 'Новая фотография'
       author: 'Автор'
       event: 'Событие'
       owner: 'Организатор'
-      subject: 'Новая фотография @ %{event}'
+      subject: 'Новая фотография '

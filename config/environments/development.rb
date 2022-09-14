@@ -42,8 +42,11 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
 
 
-  config.action_mailer.default_url_options = { :host => 'localhost:3000'} # ?
-  config.action_mailer.delivery_method = :mailjet_api
+  # config.action_mailer.default_url_options = { :host => 'localhost:3000'} # ?
+  # config.action_mailer.delivery_method = :mailjet_api
+
+  config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.default_url_options = { host: 'kakojtodomen.site', port: 25}
 
 
   # Print deprecation notices to the Rails logger.

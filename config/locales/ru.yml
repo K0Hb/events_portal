@@ -185,21 +185,21 @@ ru:
       title: 'Новый комментарий'
       author: 'Автор'
       event: 'Событие'
-      datetime: 'Состоится'
       owner: 'Организатор'
+      subject: 'Новый комментарий @ %{event}'
+
     subscription:
       title: 'Новая подписка'
       name: 'Имя'
       email: 'Email'
       author: 'Автор'
       event: 'Событие'
-      datetime: 'Состоится'
       owner: 'Организатор'
+      subject: 'Новая подписка на %{event}'
 
-  mailer:
-    new_subscription: 'Новая подписка'
-    name: 'Имя'
-    email: 'Email'
-    event: 'Событие'
-    date_event: 'Состоится'
-    organizer: 'Организатор'
+    photo:
+      title: 'Новая фотография'
+      author: 'Автор'
+      event: 'Событие'
+      owner: 'Организатор'
+      subject: 'Новая фотография @ %{event}'

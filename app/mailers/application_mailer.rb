@@ -1,3 +1,3 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'goplit0000@kakojtodomen.site'
+  default from: 'admin@kakojtodomen.site'
 end

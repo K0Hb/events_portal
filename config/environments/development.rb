@@ -42,7 +42,7 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
 
   config.action_mailer.delivery_method = :sendmail
-  config.action_mailer.default_url_options = { from: 'kakojtodomen.site' }
+  config.action_mailer.default_url_options = { from: 'kakojtodomen.site', host: 'kakojtodomen.site' }
 
 
   # Print deprecation notices to the Rails logger.

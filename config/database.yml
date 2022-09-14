@@ -21,10 +21,6 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
-  database: db/production.sqlite3
-
-production:
   adapter: postgresql
   user: ENV['DB_USER']
   password: ENV['DB_PASSWORD']

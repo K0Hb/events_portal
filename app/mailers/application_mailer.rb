@@ -1,5 +1,3 @@
 class ApplicationMailer < ActionMailer::Base
-  # default from: ENV['MAILJET_SENDER']
-
-  # layout 'mailer'
+  default from: 'goplit0000@kakojtodomen.site'
 end

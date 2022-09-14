@@ -30,12 +30,6 @@ gem 'vips'
 gem "hotwire-rails", "~> 0.1.3"
 gem 'dotenv-rails'
 
-# deploy
-gem 'capistrano'
-gem 'capistrano-passenger'
-gem 'capistrano-rbenv'
-gem 'capistrano-bundler'
-gem 'capistrano-resque'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

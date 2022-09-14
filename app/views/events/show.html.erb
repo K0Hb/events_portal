@@ -37,9 +37,11 @@
           <% end %>
         </div>
 
-        <div class="event-photo-form mt-2">
-          <%= render partial: 'photos/form', locals: {photo: @new_photo || @event.photos.build} %>
-        </div>
+        <% if current_user %>
+          <div class="event-photo-form mt-2">
+            <%= render partial: 'photos/form', locals: {photo: @new_photo || @event.photos.build} %>
+          </div>
+        <% end %>
       </div>
 
       <div class="event-comments buffer-top mt-2">

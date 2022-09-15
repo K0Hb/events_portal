@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
   before_action :password_guard!, only: [:show]
   before_action :set_event, except: [:index, :new, :create]
-  after_action :verify_authorized, only: [:edit, :update, :destroy, :show]
+  after_action :verify_authorized, except: [:index]
   after_action :verify_policy_scoped, only: [:index]
 
   def index
@@ -17,8 +17,8 @@ class EventsController < ApplicationController
   end
 
   def new
-    @event = current_user.events.build
     authorize @event
+    @event = current_user.events.build
   end
 
   def edit
@@ -26,8 +26,9 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = current_user.events.build(event_params)
     authorize @event
+
+    @event = current_user.events.build(event_params)
 
     if @event.save
       redirect_to @event, notice: I18n.t('controllers.events.created')

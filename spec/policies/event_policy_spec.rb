@@ -7,29 +7,50 @@ RSpec.describe EventPolicy, type: :policy do
 
   subject { described_class }
 
-  context 'when user is not owner' do
-    permissions :edit?, :update?, :destroy? do
-      it { is_expected.not_to permit(another_user, event) }
+  describe '#edit, #update, #destroy' do
+    context 'when user is not owner' do
+      permissions :edit?, :update?, :destroy? do
+        it 'not permit' do
+          is_expected.not_to permit(another_user, event)
+        end
+      end
+    end
+
+    context 'when user is not logged' do
+      permissions :edit?, :update?, :destroy? do
+        it 'not permit' do
+          is_expected.not_to permit(nil, Event)
+        end
+      end
+    end
+
+    context 'when user is the owner' do
+      permissions :edit?, :destroy?, :update? do
+        it 'permit' do
+          is_expected.to permit(current_user, event)
+        end
+      end
     end
   end
 
-  context 'when user is not logged' do
-    permissions :edit?, :update?, :destroy? do
-      it { is_expected.not_to permit(nil, Event) }
+  describe '#create' do
+    context 'registered user create event' do
+      permissions :create? do
+        it 'permit' do
+          is_expected.to permit(another_user, :event)
+        end
+        it 'permit' do
+          is_expected.to permit(current_user, :event)
+        end
+      end
     end
-  end
 
-  context 'when user is the owner' do
-    permissions :edit?, :destroy?, :update? do
-      it { is_expected.to permit(current_user, event) }
-    end
-  end
-
-  context 'registered user create event' do
-    permissions :create? do
-      it { is_expected.to permit(another_user, :event) }
-      it { is_expected.to permit(current_user, :event) }
-      it { is_expected.not_to permit(nil, Event) }
+    context 'not registered user create event' do
+      permissions :create? do
+        it 'not permit' do
+          is_expected.not_to permit(nil, Event)
+        end
+      end
     end
   end
 end

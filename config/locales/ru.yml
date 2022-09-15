@@ -167,7 +167,7 @@ ru:
     pincode: 'Пин-код'
     pincod_guard: 'Доступ только по пин-коду'
     back_major: 'На главную'
-    download: 'Загрузить'
+    download_photo: 'Загрузить фотографию'
     title: 'Название'
     address: 'Адрес'
     datetime: 'Время проведения'

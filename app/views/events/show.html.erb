@@ -5,15 +5,16 @@
 
         <div class="event-info-inner row">
           <div class="col-md-6">
+            <div class="caption">
+              <div class="event-description">
+                <h1><%= @event.title %></h1>
+                <h3><%= l @event.datetime, format: :short %></h3>
+                <h3>
+                  <small><%= link_to @event.address, "https://yandex.ru/maps/?text=#{@event.address}"%></small>
+                </h3>
 
-            <div class="event-description">
-              <h1><%= @event.title %></h1>
-              <h3><%= l @event.datetime, format: :short %></h3>
-              <h3>
-                <small><%= link_to @event.address, "https://yandex.ru/maps/?text=#{@event.address}"%></small>
-              </h3>
-
-              <p><%= @event.description %></p>
+                <p><%= @event.description %></p>
+              </div>
             </div>
 
             <% if current_user_can_edit?(@event) %>
@@ -58,9 +59,9 @@
     </div>
 
     <div class="col-md-4">
-      <div id="map" data-address="<%= @event.address %>" class="event-map mt-2 mb-2", style="width: 350px; height: 350px", data-controller="map"></div>
+      <div id="map" data-address="<%= @event.address %>" class="event-map mt-2 mb-2", style="width: 290; height: 290px", data-controller="map"></div>
       <div class="event-owner">
-        <h4><%= t('view.calling') %></h4>
+        <h4 class="text-center"><%= t('view.calling') %></h4>
         <p><%= render partial: 'users/user', object: @event.user %></p>
       </div>
       <% if  @event.subscriptions.second.present? %>

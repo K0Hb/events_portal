@@ -2,11 +2,10 @@
   <%= render partial: 'partials/form_errors', locals: {model: photo} %>
 
   <div class="form-group">
-    <%= f.label t('view.photo') %>
     <%= f.file_field :photo %>
   </div>
 
   <div class="actions">
-    <%= f.submit t('view.download'), class: 'btn btn-primary mt-2' %>
+    <%= f.submit t('view.download_photo'), class: 'btn btn-primary mt-2' %>
   </div>
 <% end %>

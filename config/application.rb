@@ -12,6 +12,7 @@ module EventsPortal
     config.load_defaults 7.0
 
     config.i18n.default_locale = :ru
+    config.web_console.development_only = false
     # config.active_record.raise_in_transactional_callbacks = true
 
     # Configuration for the application, engines, and railties goes here.

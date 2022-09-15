@@ -204,3 +204,6 @@ ru:
       event: 'Событие'
       owner: 'Организатор'
       subject: 'Новая фотография '
+
+  pundit:
+    not_authorized: 'Доступ запрещен'

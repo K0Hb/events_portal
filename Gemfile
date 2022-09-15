@@ -29,12 +29,16 @@ gem 'rmagick'
 gem 'vips'
 gem "hotwire-rails", "~> 0.1.3"
 gem 'dotenv-rails'
+gem 'pundit'
 
 
 group :development, :test do
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
-  gem "sqlite3", "~> 1.4"
-  gem "web-console"
+  gem 'debug', platforms: %i[ mri mingw x64_mingw ]
+  gem 'sqlite3', '~> 1.4'
+  gem 'web-console'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'factory_bot_rails'
 end
 
 group :production do

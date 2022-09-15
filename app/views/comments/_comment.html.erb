@@ -1,4 +1,4 @@
-<div class="buffer-bottom">
+<div class="buffer-bottom border border-secondary p-1 rounded mb-2 mt-2">
   <p><%= comment.body %></p>
   <p>
     <span>
@@ -13,8 +13,8 @@
     <% if current_user_can_edit?(comment) %>
         <%= button_to t('view.delete'), event_comment_path(comment.event, comment),
             method: :delete,
-            data: {confirm: t('.destroy_confirm')},
-            class: "bg-transparent no-border my-bt" %>
+            form: { data: {turbo_confirm: t('are_you_sure')} },
+            class: "btn btn-danger" %>
     <% end %>
     </em>
   </p>

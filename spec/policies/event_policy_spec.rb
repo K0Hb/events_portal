@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe EventPolicy, type: :policy do
-  let(:current_user) { User.new }
-  let(:another_user) { User.new(id: 1) }
-  let(:event) { Event.new(user: current_user) }
+  let(:current_user1) { User.new(id: 1) }
+  let(:current_user2) { User.new(id: 2) }
+  let(:event) { Event.new(user: current_user1) }
 
   subject { described_class }
 
@@ -11,7 +11,7 @@ RSpec.describe EventPolicy, type: :policy do
     context 'when user is not owner' do
       permissions :edit?, :update?, :destroy? do
         it 'not permit' do
-          is_expected.not_to permit(another_user, event)
+          is_expected.not_to permit(current_user2, event)
         end
       end
     end
@@ -27,7 +27,7 @@ RSpec.describe EventPolicy, type: :policy do
     context 'when user is the owner' do
       permissions :edit?, :destroy?, :update? do
         it 'permit' do
-          is_expected.to permit(current_user, event)
+          is_expected.to permit(current_user1, event)
         end
       end
     end
@@ -37,10 +37,10 @@ RSpec.describe EventPolicy, type: :policy do
     context 'registered user create event' do
       permissions :create? do
         it 'permit' do
-          is_expected.to permit(another_user, :event)
+          is_expected.to permit(current_user1, :event)
         end
         it 'permit' do
-          is_expected.to permit(current_user, :event)
+          is_expected.to permit(current_user2, :event)
         end
       end
     end

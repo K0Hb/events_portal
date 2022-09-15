@@ -1,7 +1,8 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
-  before_action :password_guard!, only: [:show]
   before_action :set_event, except: [:index, :new, :create]
+  before_action :password_guard!, only: [:show]
+
   after_action :verify_authorized, except: [:index]
   after_action :verify_policy_scoped, only: [:index]
 
@@ -70,7 +71,7 @@ class EventsController < ApplicationController
       if params[:pincode].present?
         flash.now[:alert] = I18n.t('controllers.events.wrong_pincode')
       end
-      render 'password_form'
+      render 'password_form', status: :service_unavailable
     end
   end
 

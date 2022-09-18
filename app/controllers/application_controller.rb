@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
 
-  rescue_from Pundit::NotAuthorizedError, with: :user_no_authorized
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   before_action :configure_permitted_parameters, if: :devise_controller?
   helper_method :current_user_can_edit?
 
@@ -27,9 +27,5 @@ class ApplicationController < ActionController::Base
 
   def pundit_user
     UserContext.new(current_user, cookies)
-  end
-
-  def current_user_can_edit?(event)
-    user_signed_in? && event.user == current_user
   end
 end

@@ -4,19 +4,21 @@ class EventPolicy < ApplicationPolicy
   end
 
   def edit?
-    user_is_owner?(record)
+    user_is_owner?
   end
 
   def update?
-    user_is_owner?(record)
+    user_is_owner?
   end
 
   def destroy?
-    user_is_owner?(record)
+    user_is_owner?
   end
 
   def show?
-    true
+    record.pincode.blank? ||
+    user_is_owner? ||
+    record.pincode_valid?(cookies["events_#{record.id}_pincode"])
   end
 
   class Scope < Scope
@@ -27,7 +29,7 @@ class EventPolicy < ApplicationPolicy
 
   private
 
-  def user_is_owner?(event)
-    user.present? && (event.try(:user) == user)
+  def user_is_owner?
+    user.present? && record.user == user
   end
 end

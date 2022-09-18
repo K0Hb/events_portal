@@ -9,9 +9,8 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def user_no_authorized
+  def user_not_authorized
     flash[:alert] = t('pundit.not_authorized')
-
     redirect_to(request.referrer || root_path)
   end
 
@@ -24,6 +23,10 @@ class ApplicationController < ActionController::Base
       :sign_up,
       keys: [:name, :password, :avatar, :password_confirmation, :current_password]
     )
+  end
+
+  def pundit_user
+    UserContext.new(current_user, cookies)
   end
 
   def current_user_can_edit?(event)

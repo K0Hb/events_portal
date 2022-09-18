@@ -36,6 +36,8 @@ ru:
       updated: 'Вы обновили мероприятие'
       destroyed: 'Вы удалили мероприятие'
       wrong_pincode: 'Неверный пинкод!'
+      only_pincode: 'Просмотр только по пинкоду'
+      correct_pincode: 'Верный пинкод'
     users:
       updated: 'Вы обновили свой профиль'
     comments:

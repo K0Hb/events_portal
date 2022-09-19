@@ -271,7 +271,16 @@ Devise.setup do |config|
   # ==> OmniAuth
 
   config.omniauth :facebook, Rails.application.credentials.dig(:facebook, :id),
-    Rails.application.credentials.dig(:facebook, :secret_key)
+  Rails.application.credentials.dig(:facebook, :secret_key)
+
+  config.omniauth :vkontakte, Rails.application.credentials.dig(:vkontakte, :id),
+  Rails.application.credentials.dig(:vkontakte, :secret_key),
+  {
+    scope: 'email',
+    lang: 'ru',
+    https: 1,
+    redirect_uri: 'https://b-b-q.site/users/auth/vkontakte/callback'
+  }
 
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.

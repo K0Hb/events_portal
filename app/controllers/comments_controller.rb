@@ -1,7 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_event, only: [:create, :destroy]
   before_action :set_comment, only: [:destroy]
-  before_action :check_user_present, only: [:create, :destroy]
 
   def create
     @new_comment = @event.comments.build(comment_params)
@@ -29,10 +28,6 @@ class CommentsController < ApplicationController
 
   private
 
-  def check_user_present
-    redirect_to @event, alert: I18n.t('controllers.comments.user_no_present') unless current_user.present?
-  end
-
   def set_event
     @event = Event.find(params[:event_id])
   end
@@ -46,8 +41,7 @@ class CommentsController < ApplicationController
   end
 
   def notify_subscribers(comment)
-    all_emails = (@event.subscriptions.map(&:user_email) + [@event.user.email]).uniq
-    all_emails -= [current_user.email] if current_user
+    all_emails = (event.subscriptions.map(&:user_email) + [event.user.email] - [comment.user&.email]).uniq
     all_emails.each do |mail|
       EventMailer.comment(comment, mail).deliver_now
     end

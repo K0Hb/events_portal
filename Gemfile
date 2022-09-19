@@ -30,6 +30,10 @@ gem 'vips'
 gem "hotwire-rails", "~> 0.1.3"
 gem 'dotenv-rails'
 gem 'pundit'
+gem 'omniauth'
+gem "omniauth-rails_csrf_protection", "~> 1.0"
+gem 'omniauth-facebook'
+gem 'omniauth-vkontakte'
 
 
 group :development, :test do

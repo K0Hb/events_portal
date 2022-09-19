@@ -11,7 +11,9 @@ module EventsPortal
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
+    config.time_zone = 'Moscow'
     config.i18n.default_locale = :ru
+    config.i18n.fallbacks = [:en]
     config.web_console.development_only = false
     # config.active_record.raise_in_transactional_callbacks = true
 

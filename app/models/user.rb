@@ -49,15 +49,21 @@ class User < ApplicationRecord
   end
 
   def self.find_for_github_oauth(access_token)
-    data = access_token.info
-    user = User.where(email: data['email']).first
-    unless user
-      user = User.create(
-        email: data['email'],
-        password: Devise.friendly_token[0,20]
-      )
+    provider = access_token.provider
+    nickname = access_token.info.nickname
+    name = access_token.info.name
+    email = access_token.info.email
+    url = "https://github.com/#{nickname}"
+
+    user = find_by(email: email)
+
+    return user if user.present?
+
+    where(url: url, provider: provider).first_or_create! do |user|
+      user.name = name
+      user.email = email
+      user.password = Devise.friendly_token.first(16)
     end
-    user
   end
 
   private

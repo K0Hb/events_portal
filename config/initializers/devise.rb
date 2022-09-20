@@ -273,17 +273,20 @@ Devise.setup do |config|
   config.omniauth :facebook, Rails.application.credentials.dig(:facebook, :id),
   Rails.application.credentials.dig(:facebook, :secret_key)
 
-  config.omniauth :vkontakte, '51430740',
-  'a6DxttmkzXBfCghDX3Ag',
+  config.omniauth :vkontakte, Rails.application.credentials.dig(:vkontakte, :id),
+  Rails.application.credentials.dig(:vkontakte, :secret_key),
     {
       scope: 'mail',
       lang: 'ru',
       https: 1,
-      redirect_uri: 'http://localhost:3000/users/auth/vkontakte/callback'
+      redirect_uri: 'http://kakojtodomen.site/users/auth/vkontakte/callback'
     }
 
-  config.omniauth :github,  Rails.application.credentials.dig(:github, :id),
+  config.omniauth :github, Rails.application.credentials.dig(:github, :id),
   Rails.application.credentials.dig(:github, :secret_key), scope: 'user:email'
+
+  config.omniauth :yandex, Rails.application.credentials.dig(:yandex, :client_id),
+  Rails.application.credentials.dig(:yandex, :client_secret)
 
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.

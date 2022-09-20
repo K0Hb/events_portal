@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :validatable,
-    :omniauthable, omniauth_providers: %i[facebook vkontakte github]
+    :omniauthable, omniauth_providers: %i[github yandex] # facebook vkontakte dont work :(
 
   has_many :events, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -54,6 +54,23 @@ class User < ApplicationRecord
     name = access_token.info.name
     email = access_token.info.email
     url = "https://github.com/#{nickname}"
+
+    user = find_by(email: email)
+
+    return user if user.present?
+
+    where(url: url, provider: provider).first_or_create! do |user|
+      user.name = name
+      user.email = email
+      user.password = Devise.friendly_token.first(16)
+    end
+  end
+
+  def self.find_for_yandex_oauth(access_token)
+    provider = access_token.provider
+    name = access_token.info.name
+    email = access_token.info.email
+    url = "https://github.com/#{name}"
 
     user = find_by(email: email)
 

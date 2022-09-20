@@ -18,8 +18,14 @@
   <%= link_to t('.unlock_instructions'), new_unlock_path(resource_name) %><br />
 <% end %>
 
-<%- if devise_mapping.omniauthable? %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= button_to "Sign in with #{provider}", omniauth_authorize_path(resource_name, provider), method: :post, "data-turbo": false %><br />
+<h3><%= t('.sign_in_with_from') %></h2>
+
+<div>
+  <%- if devise_mapping.omniauthable? %>
+    <%- resource_class.omniauth_providers.each do |provider| %>
+      <div class="btn-group mr-2" role="group" aria-label="First group">
+        <%= button_to "#{provider}", omniauth_authorize_path(resource_name, provider), method: :post, "data-turbo": false, class: 'btn btn-primary' %><br />
+      </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>

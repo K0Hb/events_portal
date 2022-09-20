@@ -358,7 +358,7 @@ DEPENDENCIES
   jbuilder
   omniauth
   omniauth-facebook
-  omniauth-rails_csrf_protection (~> 1.0)
+  omniauth-rails_csrf_protection
   omniauth-vkontakte
   pg
   puma (~> 5.0)

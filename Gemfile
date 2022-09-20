@@ -16,33 +16,32 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
 # my gems
 gem 'aws-sdk-s3'
-gem 'devise'
+gem 'bootsnap', require: false
 gem 'bootstrap', '~> 5.1.3'
-gem "bootsnap", require: false
-gem 'twitter-bootstrap-rails'
-gem 'devise-i18n'
-gem 'rails-i18n'
-gem 'russian'
 gem 'carrierwave'
-gem 'image_processing'
-gem 'rmagick'
-gem 'vips'
-gem "hotwire-rails", "~> 0.1.3"
+gem 'devise'
+gem 'devise-i18n'
 gem 'dotenv-rails'
-gem 'pundit'
+gem 'hotwire-rails', '~> 0.1.3'
+gem 'image_processing'
 gem 'omniauth'
-gem "omniauth-rails_csrf_protection", "~> 1.0"
 gem 'omniauth-facebook'
+gem 'omniauth-rails_csrf_protection'
 gem 'omniauth-vkontakte'
-
+gem 'pundit'
+gem 'rails-i18n'
+gem 'rmagick'
+gem 'russian'
+gem 'twitter-bootstrap-rails'
+gem 'vips'
 
 group :development, :test do
   gem 'debug', platforms: %i[ mri mingw x64_mingw ]
-  gem 'sqlite3', '~> 1.4'
-  gem 'web-console'
+  gem 'factory_bot_rails'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
-  gem 'factory_bot_rails'
+  gem 'sqlite3', '~> 1.4'
+  gem 'web-console'
 end
 
 group :production do

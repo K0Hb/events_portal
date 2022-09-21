@@ -16,44 +16,12 @@ class User < ApplicationRecord
 
   after_commit :link_subscriptions, on: :create
 
-  def self.find_for_facebook_oauth(access_token)
-    email = access_token.info.email
-    user = where(email: email).first
-
-    return user if user.present?
-
+  def self.find_or_create_for_oauth(access_token)
     provider = access_token.provider
-    id = access_token.extra.raw_info.id
-    url = "https://facebook.com/#{id}"
-
-    where(url: url, provider: provider).first_or_create! do |user|
-      user.name = access_token.info.name
-      user.email = email
-      user.password = Devise.friendly_token.first(16)
-    end
-  end
-
-  def self.find_for_vkontakte_oauth(access_token)
-    email = access_token.info.email
-    url = access_token.info.urls[:Vkontakte]
-
-    user = find_by(email: email)
-
-    return user if user.present?
-
-    where(url: url, provider: provider).first_or_create! do |user|
-      user.name = access_token.info.name
-      user.email = email
-      user.password = Devise.friendly_token.first(16)
-    end
-  end
-
-  def self.find_for_github_oauth(access_token)
-    provider = access_token.provider
-    nickname = access_token.info.nickname
     name = access_token.info.name
     email = access_token.info.email
-    url = "https://github.com/#{nickname}"
+    image = access_token.info.image
+    url = get_url_from_access_token(access_token)
 
     user = find_by(email: email)
 
@@ -63,27 +31,20 @@ class User < ApplicationRecord
       user.name = name
       user.email = email
       user.password = Devise.friendly_token.first(16)
-    end
-  end
-
-  def self.find_for_yandex_oauth(access_token)
-    provider = access_token.provider
-    name = access_token.info.name
-    email = access_token.info.email
-    url = "https://github.com/#{name}"
-
-    user = find_by(email: email)
-
-    return user if user.present?
-
-    where(url: url, provider: provider).first_or_create! do |user|
-      user.name = name
-      user.email = email
-      user.password = Devise.friendly_token.first(16)
+      user.url = url
+      user.avatar = image if image
     end
   end
 
   private
+
+  def self.get_url_from_access_token(access_token)
+    urls = {
+      github: access_token.info.urls['Github'],
+      yandex: "https://yandex/#{access_token.info.name}"
+    }
+    urls[access_token.provider.to_sym]
+  end
 
   def link_subscriptions
     Subscription.where(user_id: nil, user_email: self.email).update_all(user_id: self.id)

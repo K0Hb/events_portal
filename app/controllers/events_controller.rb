@@ -56,7 +56,9 @@ class EventsController < ApplicationController
   private
 
   def user_not_authorized
-    if params[:pincode].present? && @event.pincode_valid?(params[:pincode])
+    if @event.pincode.blank?
+      redirect_to root, notice: I18n.t('pandit.not_authorized')
+    elsif params[:pincode].present? && @event.pincode_valid?(params[:pincode])
       cookies.permanent["events_#{@event.id}_pincode"] = params[:pincode]
       redirect_to @event
     else

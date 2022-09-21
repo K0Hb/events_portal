@@ -32,7 +32,6 @@ class User < ApplicationRecord
       user.email = email
       user.password = Devise.friendly_token.first(16)
       user.url = url
-      user.avatar = image if image
     end
   end
 

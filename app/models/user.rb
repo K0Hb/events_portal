@@ -3,6 +3,8 @@ class User < ApplicationRecord
     :recoverable, :rememberable, :validatable,
     :omniauthable, omniauth_providers: %i[github yandex] # facebook vkontakte dont work :(
 
+  mount_uploader :avatar, AvatarUploader
+
   has_many :events, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :subscriptions, dependent: :destroy
@@ -32,6 +34,9 @@ class User < ApplicationRecord
       user.email = email
       user.password = Devise.friendly_token.first(16)
       user.url = url
+      # /usr/share/rvm/rubies/ruby-3.0.0/lib/ruby/3.0.0/net/http/response.rb:340:in `stream_check': undefined method `closed?' for nil:NilClass (NoMethodError)
+
+      # user.remote_avatar_url = image if image
     end
   end
 

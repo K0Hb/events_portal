@@ -4,19 +4,13 @@ module ApplicationHelper
   end
 
   def user_avatar(user)
-    if user.avatar.attached?
-      user.avatar.variant(resize_to_fit: [400, 400])
-    else
-      asset_path('avatar.png')
-    end
+    return user.avatar.url if user.avatar?
+    asset_path('avatar.png')
   end
 
   def user_avatar_thumb(user)
-    if user.avatar.attached?
-      user.avatar.variant(resize_to_fit: [400, 400])
-    else
-      asset_path('avatar.png')
-    end
+    return user.avatar.thumb.url if user.avatar.file.present?
+    asset_path('avatar.png')
   end
 
   def photo_thumb(object)

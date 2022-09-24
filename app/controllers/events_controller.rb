@@ -2,7 +2,6 @@ class EventsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index, :pincode]
   before_action :set_event, except: [:index, :new, :create]
 
-  after_action :verify_authorized, except: [:index, :pincode]
   after_action :verify_policy_scoped, only: [:index]
 
   def index
@@ -58,7 +57,13 @@ class EventsController < ApplicationController
   def user_not_authorized
     if @event.pincode.blank?
       redirect_to root, notice: I18n.t('pandit.not_authorized')
-    elsif params[:pincode].present? && @event.pincode_valid?(params[:pincode])
+    else
+      check_pincode
+    end
+  end
+
+  def check_pincode
+    if params[:pincode].present? && @event.pincode_valid?(params[:pincode])
       cookies.permanent["events_#{@event.id}_pincode"] = params[:pincode]
       redirect_to @event
     else

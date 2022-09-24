@@ -34,9 +34,15 @@ class User < ApplicationRecord
       user.email = email
       user.password = Devise.friendly_token.first(16)
       user.url = url
-      # /usr/share/rvm/rubies/ruby-3.0.0/lib/ruby/3.0.0/net/http/response.rb:340:in `stream_check': undefined method `closed?' for nil:NilClass (NoMethodError)
 
-      # user.remote_avatar_url = image if image
+      # /usr/share/rvm/rubies/ruby-3.0.0/lib/ruby/3.0.0/net/http/response.rb:340:in `stream_check': undefined method `closed?' for nil:NilClass (NoMethodError)
+      # /usr/share/rvm/rubies/ruby-3.0.0/lib/ruby/3.0.0/net/http/response.rb:300:in `block in read_body_0': undefined method `read' for nil:NilClass (NoMethodError)
+
+      begin
+        user.remote_avatar_url = image
+      rescue NoMethodError
+        Rails.logger.info 'Failed to upload user photo'
+      end
     end
   end
 

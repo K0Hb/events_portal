@@ -17,7 +17,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # my gems
 gem 'aws-sdk-s3'
 gem 'bootsnap', require: false
-gem 'bootstrap', '~> 5.1.3'
+gem 'bootstrap'
 gem 'carrierwave'
 gem 'devise'
 gem 'devise-i18n'
@@ -34,7 +34,6 @@ gem 'pundit'
 gem 'rails-i18n'
 gem 'rmagick'
 gem 'russian'
-gem 'twitter-bootstrap-rails'
 gem 'vips'
 
 group :development, :test do

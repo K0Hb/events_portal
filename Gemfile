@@ -1,18 +1,18 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 # base gems
-gem "puma", "~> 5.0"
-ruby "3.0.0"
-gem "rails", "~> 7.0.3", ">= 7.0.3.1"
+gem 'puma', '~> 5.0'
+ruby '3.0.0'
+gem 'rails', '~> 7.0.3', '>= 7.0.3.1'
 
 # default gems
-gem "sprockets-rails"
-gem "importmap-rails"
-gem "turbo-rails", '~> 1.0.0'
-gem "stimulus-rails"
-gem "jbuilder"
-gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
+gem 'importmap-rails'
+gem 'jbuilder'
+gem 'stimulus-rails'
+gem 'sprockets-rails'
+gem 'turbo-rails', '~> 1.0.0'
+gem 'tzinfo-data', platforms: %i[ mingw mswin x64_mingw jruby ]
 
 # my gems
 gem 'aws-sdk-s3'

@@ -44,7 +44,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'sqlite3', '~> 1.4'
-  gem 'web-console'
 end
 
 group :production do

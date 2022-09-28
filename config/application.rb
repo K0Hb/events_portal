@@ -14,7 +14,7 @@ module EventsPortal
     config.time_zone = 'Moscow'
     config.i18n.default_locale = :ru
     config.i18n.fallbacks = [:en]
-    config.web_console.development_only = true
+    config.web_console.development_only = false
     # config.active_record.raise_in_transactional_callbacks = true
 
     # Configuration for the application, engines, and railties goes here.

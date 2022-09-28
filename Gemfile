@@ -13,7 +13,6 @@ gem 'stimulus-rails'
 gem 'sprockets-rails'
 gem 'turbo-rails', '~> 1.0.0'
 gem 'tzinfo-data', platforms: %i[ mingw mswin x64_mingw jruby ]
-gem 'web-console'
 
 # my gems
 gem 'aws-sdk-s3'
@@ -44,6 +43,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'sqlite3', '~> 1.4'
+  gem 'web-console'
 end
 
 group :production do

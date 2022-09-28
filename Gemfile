@@ -35,6 +35,7 @@ gem 'pundit'
 gem 'rails-i18n'
 gem 'rmagick'
 gem 'russian'
+gem 'sass-rails'
 gem 'vips'
 
 group :development, :test do

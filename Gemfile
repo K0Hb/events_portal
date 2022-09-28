@@ -43,6 +43,11 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'sqlite3', '~> 1.4'
   gem 'web-console'
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano-passenger'
+  gem 'capistrano-rvm'
+  gem 'capistrano-bundler'
 end
 
 group :production do

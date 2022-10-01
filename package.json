@@ -5,6 +5,8 @@
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.1",
     "bootstrap-icons": "^1.9.1",
+    "jquery": "^3.6.1",
+    "lightbox2": "^2.11.3",
     "sass": "^1.55.0",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0"

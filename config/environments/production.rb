@@ -3,7 +3,7 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  server 'kakojtodomen.site', user: 'deploy', roles: %w[app db web resque_worker]
+  # server 'kakojtodomen.site', user: 'deploy', roles: %w[app db web resque_worker]
 
   config.active_job.queue_adapter = :resque
   config.active_job.queue_name_prefix = "events_portal_#{Rails.env}"

@@ -1,9 +1,10 @@
 <div class="event-photo buffer-both">
   <div class="mt-3 mb-1">
-    <a href=<%= url_for(photo.photo) %> > <%= event_photo_thumb(photo) %></a>
-    <span>
-      <%= t('view.add') %> <%= render partial: 'users/user', object: photo.user %>
-    </span>
+
+    <%= link_to (image_tag photo.photo.variant(resize_to_fill: [200, 200])),
+      url_for(photo.photo),
+      data: { lightbox: 'photo-set', title: link_to(photo.user.name, user_path(photo.user)) }
+    %>
     <span>
       <% if policy(photo.event).edit? %>
         <%= button_to 'delete', event_photo_path(photo.event, photo),

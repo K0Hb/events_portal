@@ -9,6 +9,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     redirect_after_oauth
   end
 
+  def vkontakte
+    redirect_after_oauth
+  end
+
   private
 
   def set_user_and_provider

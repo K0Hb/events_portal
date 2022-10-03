@@ -273,8 +273,6 @@ Devise.setup do |config|
   config.omniauth :facebook, Rails.application.credentials.dig(:facebook, :id),
   Rails.application.credentials.dig(:facebook, :secret_key)
 
-  # config.omniauth :vkontakte, Rails.application.credentials.dig(:vkontakte, :id),
-  # Rails.application.credentials.dig(:vkontakte, :secret_key),
   config.omniauth :vkontakte, Rails.application.credentials.dig(:vkontakte, :id),
   Rails.application.credentials.dig(:vkontakte, :secret_key),
     {

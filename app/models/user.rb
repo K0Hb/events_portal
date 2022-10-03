@@ -22,8 +22,7 @@ class User < ApplicationRecord
     provider = access_token.provider
     name = access_token.info.name
     email = access_token.info.email
-    image = access_token.dig(:extra, :raw_info, :photo_200_orig)
-    image ||= access_token.info.image
+    image = access_token.info.image
     url = get_url_from_access_token(access_token)
 
     user = find_by(email: email)
@@ -48,8 +47,8 @@ class User < ApplicationRecord
 
   def self.get_url_from_access_token(access_token)
     urls = {
-      github: access_token.info.urls['GitHub'],
       yandex: "https://yandex/#{access_token.info.name}",
+      github: access_token.info.urls['GitHub'],
       vkontakte: access_token.info.urls['Vkontakte']
     }
     urls[access_token.provider.to_sym]

@@ -21,7 +21,7 @@ class User < ApplicationRecord
     name = access_token.info.name
     email = access_token.info.email
     url = get_url_from_access_token(access_token)
-    image = URI.parse(access_token.info.image).open
+    image = URI.parse(access_token.info.image).open if access_token.info.image
 
     user = find_by(email: email)
 

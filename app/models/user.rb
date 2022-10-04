@@ -3,8 +3,6 @@ class User < ApplicationRecord
     :recoverable, :rememberable, :validatable,
     :omniauthable, omniauth_providers: %i[github yandex vkontakte] # facebook vkontakte dont work :(
 
-  mount_uploader :avatar, AvatarUploader
-
   has_many :events, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :subscriptions, dependent: :destroy
@@ -28,7 +26,6 @@ class User < ApplicationRecord
     user = find_by(email: email)
 
     return user if user.present?
-
     where(url: url, provider: provider).first_or_create! do |user|
       user.name = name
       user.email = email
@@ -36,7 +33,7 @@ class User < ApplicationRecord
       user.url = url
 
       begin
-        user.remote_avatar_url = image
+        user.remote_avatar_url = image if image
       rescue NoMethodError
         Rails.logger.info 'Failed to upload user photo'
       end

@@ -46,12 +46,14 @@ class User < ApplicationRecord
   private
 
   def self.get_url_from_access_token(access_token)
-    urls = {
-      yandex: "https://yandex/#{access_token.info.name}",
-      github: access_token.info.urls['GitHub'],
-      vkontakte: access_token.info.urls['Vkontakte']
-    }
-    urls[access_token.provider.to_sym]
+    case access_token.provider.to_sym
+    when :yandex
+      "https://yandex/#{access_token.info.name}"
+    when :github
+      access_token.info.urls['GitHub']
+    when :vkontakte
+      access_token.info.urls['Vkontakte']
+    end
   end
 
   def link_subscriptions

@@ -20,8 +20,8 @@ class User < ApplicationRecord
     provider = access_token.provider
     name = access_token.info.name
     email = access_token.info.email
-    image = access_token.info.image
     url = get_url_from_access_token(access_token)
+    image = URI.parse(access_token.info.image).open
 
     user = find_by(email: email)
 
@@ -31,12 +31,7 @@ class User < ApplicationRecord
       user.email = email
       user.password = Devise.friendly_token.first(16)
       user.url = url
-
-      begin
-        user.remote_avatar_url = image if image
-      rescue NoMethodError
-        Rails.logger.info 'Failed to upload user photo'
-      end
+      user.avatar.attach(io: image, filename: 'avatar.png') if image
     end
   end
 

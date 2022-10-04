@@ -281,8 +281,10 @@ Devise.setup do |config|
       redirect_uri: 'http://kakojtodomen.site/users/auth/vkontakte/callback'
     }
 
-  config.omniauth :github, Rails.application.credentials.dig(:github, :id),
-  Rails.application.credentials.dig(:github, :secret_key), scope: 'user:email'
+  # config.omniauth :github, Rails.application.credentials.dig(:github, :id),
+  # Rails.application.credentials.dig(:github, :secret_key), scope: 'user:email'
+  config.omniauth :github, 'c6520ed2f43c97cba5c2',
+  '0350cd8643db39a5e1e3da6379898006737f72ce', scope: 'user:email'
 
   config.omniauth :yandex, Rails.application.credentials.dig(:yandex, :client_id),
   Rails.application.credentials.dig(:yandex, :client_secret)

@@ -1,15 +1,16 @@
-ymaps.ready(init);
-var myMap;
+if (document.getElementById('map') !== null) {
+  ymaps.ready(init)
+}
 
 function init(){
-  address = document.getElementById('map').getAttribute('data-address');
+  const address = document.getElementById('map').getAttribute('data-address');
 
-  myMap = new ymaps.Map("map", {
+  const myMap = new ymaps.Map("map", {
     center: [55.76, 37.64],
     zoom: 10
   });
 
-  myGeocoder = ymaps.geocode(address);
+  const myGeocoder = ymaps.geocode(address);
 
   myGeocoder.then(
     function (res) {

@@ -79,4 +79,4 @@ secret_key_base:
 
 ## Deploy
 
-Развернутое приложение доступно по [ссылке](http://www.kakojtodomen.site/)
+Развернутое приложение доступно по [ссылке](https://events-portal-22082022.herokuapp.com/)
